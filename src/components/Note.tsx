@@ -20,9 +20,10 @@ const White = styled.button`
   border: 1px solid black;
   box-shadow: 2px 5px;
   margin: 1px;
+  transition: background 0.3s;
 
-  :active {
-    background: #eee;
+  &:active {
+    background: #ff0000;
   }
 `;
 
