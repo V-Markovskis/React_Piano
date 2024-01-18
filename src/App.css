@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+.globalContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 15px;
+}

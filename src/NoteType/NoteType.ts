@@ -51,4 +51,8 @@ export const notes: NoteType[] = [
     note: 'B',
     color: 'white',
   },
+  {
+    note: 'Janis',
+    color: 'white',
+  },
 ];
