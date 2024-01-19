@@ -2,6 +2,7 @@
 
 body {
     margin: 0;
+    background-image: url("https://wallpapers.com/images/hd/light-black-background-1920-x-1080-ov3r9u7u0ttpzwsv.jpg");
 }
 
 .globalContainer {
@@ -33,4 +34,9 @@ body {
 .paragraph {
     font-family: "Bebas Neue", sans-serif;
     font-size: 35px;
+}
+
+.background-music-container {
+    display: flex;
+    gap: 15px
 }

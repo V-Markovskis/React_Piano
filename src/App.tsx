@@ -1,7 +1,7 @@
 import './App.css';
 import Octave from './components/Octave.tsx';
 import { notes, NoteType } from './NoteType/NoteType.ts';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import AnimationLeft from './assets/Animation/AnimationLeft/AnimationLeft.tsx';
 import AnimationRight from './assets/Animation/AnimationRight/AnimationRight.tsx';
 import CustomButton from './components/buttons/custom-button/CustomButton.tsx';
@@ -14,6 +14,18 @@ function App() {
 
   const [notesArray, setNotesArray] = useState<NoteType[]>(notes);
   const [isOpen, setIsOpen] = useState(false);
+  // const [audioStatus, changeAudioStatus] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const playPauseHandler = () => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.02;
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  };
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.value === 'Reset') {
@@ -50,7 +62,14 @@ function App() {
       <div className="globalContainer">
         <AnimationLeft />
         <div>
-          <CustomBonusButton toggleYoutube={toggleYoutube} />
+          <div className="background-music-container">
+            <CustomBonusButton toggleYoutube={toggleYoutube} text={'Bonus ↕'} />
+            <CustomBonusButton toggleYoutube={playPauseHandler} text={'Music'} />
+          </div>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <audio ref={audioRef}>
+            <source src="src/sounds/main_theme.mp3" type="audio/mp3" />
+          </audio>
           <br />
           {isOpen && (
             <div className="youtube-container">
