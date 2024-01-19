@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
     margin: 0;
 }
@@ -8,10 +10,9 @@ body {
     gap: 15px;
 }
 
-.image-container {
+.image-container, .paragraph-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .custom-buttons-container, .custom-arrow-button {
@@ -27,4 +28,9 @@ body {
 
 .youtube-container {
     position: absolute;
+}
+
+.paragraph {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 35px;
 }

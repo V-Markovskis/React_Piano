@@ -23,7 +23,7 @@ const Black = styled.button`
 const White = styled.button`
   width: 80px;
   height: 250px;
-  background: white;
+  background: #d08f8f;
   border: 1px solid black;
   box-shadow: 2px 5px;
   margin: 1px;

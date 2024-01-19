@@ -4,7 +4,7 @@ import { notes, NoteType } from './NoteType/NoteType.ts';
 import React, { useState } from 'react';
 import AnimationLeft from './assets/Animation/AnimationLeft/AnimationLeft.tsx';
 import AnimationRight from './assets/Animation/AnimationRight/AnimationRight.tsx';
-import CustomButton from './components/buttons/CustomButton.tsx';
+import CustomButton from './components/buttons/custom-button/CustomButton.tsx';
 import CustomBonusButton from './components/buttons/customer-bonus-button/CustomBonusButton.tsx';
 
 function App() {
@@ -69,6 +69,10 @@ function App() {
             <img src={image} alt="Overwatch" width={300} height={300} className="image" />
           </div>
           <Octave notes={notes} clickHandler={handleClick} />
+          <br />
+          <div className="paragraph-container">
+            <h2 className="paragraph">Press all to find ME</h2>
+          </div>
           {notesArray.length === 0 && (
             <div className="custom-buttons-container">
               {buttonData.map((button) => (
