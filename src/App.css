@@ -24,3 +24,7 @@ body {
 .image {
     object-fit: contain;
 }
+
+.youtube-container {
+    position: absolute;
+}

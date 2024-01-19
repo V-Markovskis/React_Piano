@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import AnimationLeft from './assets/Animation/AnimationLeft/AnimationLeft.tsx';
 import AnimationRight from './assets/Animation/AnimationRight/AnimationRight.tsx';
 import CustomButton from './components/buttons/CustomButton.tsx';
+import CustomBonusButton from './components/buttons/customer-bonus-button/CustomBonusButton.tsx';
 
 function App() {
   const [image, setImage] = useState(
@@ -12,7 +13,7 @@ function App() {
   );
 
   const [notesArray, setNotesArray] = useState<NoteType[]>(notes);
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.value === 'Reset') {
@@ -27,6 +28,10 @@ function App() {
 
   const populateNotesArray = () => {
     setNotesArray(notes);
+  };
+
+  const toggleYoutube = () => {
+    setIsOpen(!isOpen);
   };
 
   const removeNoteFromArray = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -45,6 +50,21 @@ function App() {
       <div className="globalContainer">
         <AnimationLeft />
         <div>
+          <CustomBonusButton toggleYoutube={toggleYoutube} />
+          <br />
+          {isOpen && (
+            <div className="youtube-container">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/xoFzyA4xaNo?si=KGMVpGs_ZE5AheFI"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>{' '}
+            </div>
+          )}
           <div className="image-container">
             <img src={image} alt="Overwatch" width={300} height={300} className="image" />
           </div>
