@@ -2,7 +2,7 @@ import style from './CustomButton.module.css';
 import React from 'react';
 
 type customButtonProps = {
-  value: string;
+  value?: string;
   text: string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };

@@ -12,7 +12,7 @@ function App() {
   );
 
   const [notesArray, setNotesArray] = useState<NoteType[]>(notes);
-  const [isEmptyArray, setIsEmptyArray] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log(e.currentTarget.value);
@@ -20,6 +20,10 @@ function App() {
     setImage(`src/assets/images/piano_${e.currentTarget.value}.webp`);
     audio.play();
     removeNoteFromArray(e);
+  };
+
+  const toggleShowContent = () => {
+    setIsOpen(!isOpen);
   };
 
   const removeNoteFromArray = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -36,7 +40,10 @@ function App() {
             <img src={image} alt="Overwatch" width={300} height={300} className="image" />
           </div>
           <Octave notes={notes} clickHandler={handleClick} />
-          {!isEmptyArray && (
+          <div className="custom-arrow-button">
+            <CustomButton handleClick={toggleShowContent} text="&#8597;" />
+          </div>
+          {isOpen && (
             <div className="custom-buttons-container">
               <CustomButton value="Janis" handleClick={handleClick} text="Jānis" />
               <CustomButton value="Elvis" handleClick={handleClick} text="Elvis" />

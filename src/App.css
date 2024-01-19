@@ -14,7 +14,7 @@ body {
     margin-top: 20px;
 }
 
-.custom-buttons-container {
+.custom-buttons-container, .custom-arrow-button {
     display: flex;
     justify-content: center;
     margin-top: 20px;
