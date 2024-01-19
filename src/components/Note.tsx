@@ -10,7 +10,13 @@ const Black = styled.button`
   transition: background 0.3s;
 
   &:active {
-    background: #ff0000;
+    background: #03e9f4;
+    color: #050801;
+    box-shadow:
+      0 0 5px #03e9f4,
+      0 0 25px #03e9f4,
+      0 0 50px #03e9f4,
+      0 0 200px #03e9f4;
   }
 `;
 
@@ -24,13 +30,20 @@ const White = styled.button`
   transition: background 0.3s;
 
   &:active {
-    background: #ff0000;
+    background: #03e9f4;
+    color: #050801;
+    box-shadow:
+      0 0 5px #03e9f4,
+      0 0 25px #03e9f4,
+      0 0 50px #03e9f4,
+      0 0 200px #03e9f4;
   }
 `;
 
 type NoteProps = {
   color: string;
   note: string;
+  image: string;
   clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 const Note = ({ color, note, clickHandler }: NoteProps) => {

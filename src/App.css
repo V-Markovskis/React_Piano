@@ -7,3 +7,20 @@ body {
     grid-template-columns: 1fr 2fr 1fr;
     gap: 15px;
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.image {
+    object-fit: contain;
+}

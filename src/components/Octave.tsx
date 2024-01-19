@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin-top: 50px;
 `;
 
 type OctaveProps = {
@@ -19,7 +19,7 @@ const Octave = ({ notes, clickHandler }: OctaveProps) => {
     <Wrapper>
       <div>
         {notes.map((element, key) => (
-          <Note key={key} color={element.color} note={element.note} clickHandler={clickHandler} />
+          <Note key={key} color={element.color} note={element.note} clickHandler={clickHandler} image={element.image} />
         ))}
       </div>
     </Wrapper>
