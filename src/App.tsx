@@ -1,7 +1,7 @@
 import './App.css';
 import Octave from './components/Octave.tsx';
 import { notes, NoteType } from './NoteType/NoteType.ts';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AnimationLeft from './assets/Animation/AnimationLeft/AnimationLeft.tsx';
 import AnimationRight from './assets/Animation/AnimationRight/AnimationRight.tsx';
 import CustomButton from './components/buttons/CustomButton.tsx';
@@ -12,9 +12,12 @@ function App() {
   );
 
   const [notesArray, setNotesArray] = useState<NoteType[]>(notes);
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.currentTarget.value === 'Reset') {
+      populateNotesArray();
+    }
     console.log(e.currentTarget.value);
     const audio = new Audio(`src/sounds/piano_${e.currentTarget.value}.mp3`);
     setImage(`src/assets/images/piano_${e.currentTarget.value}.webp`);
@@ -22,14 +25,20 @@ function App() {
     removeNoteFromArray(e);
   };
 
-  const toggleShowContent = () => {
-    setIsOpen(!isOpen);
+  const populateNotesArray = () => {
+    setNotesArray(notes);
   };
 
   const removeNoteFromArray = (e: React.MouseEvent<HTMLButtonElement>) => {
     const noteName = e.currentTarget.value;
     setNotesArray((prevNotesArray) => prevNotesArray.filter((note) => note.note !== noteName));
   };
+
+  const buttonData = [
+    { value: 'Janis', text: 'Jānis' },
+    { value: 'Elvis', text: 'Elvis' },
+    { value: 'Reset', text: 'Reset' },
+  ];
 
   return (
     <>
@@ -40,13 +49,11 @@ function App() {
             <img src={image} alt="Overwatch" width={300} height={300} className="image" />
           </div>
           <Octave notes={notes} clickHandler={handleClick} />
-          <div className="custom-arrow-button">
-            <CustomButton handleClick={toggleShowContent} text="&#8597;" />
-          </div>
-          {isOpen && (
+          {notesArray.length === 0 && (
             <div className="custom-buttons-container">
-              <CustomButton value="Janis" handleClick={handleClick} text="Jānis" />
-              <CustomButton value="Elvis" handleClick={handleClick} text="Elvis" />
+              {buttonData.map((button) => (
+                <CustomButton key={button.value} value={button.value} handleClick={handleClick} text={button.text} />
+              ))}
             </div>
           )}
         </div>
