@@ -4,55 +4,59 @@ export type NoteType = {
 
 export const notes: NoteType[] = [
   {
-    note: 'C',
+    note: 'Ana',
     color: 'white',
   },
   {
-    note: 'CSharp',
+    note: 'Ashe',
     color: 'black',
   },
   {
-    note: 'D',
+    note: 'Dva',
     color: 'white',
   },
   {
-    note: 'DSharp',
+    note: 'Genji',
     color: 'black',
   },
   {
-    note: 'E',
+    note: 'Hanzo',
     color: 'white',
   },
   {
-    note: 'F',
+    note: 'Mei',
     color: 'white',
   },
   {
-    note: 'FSharp',
+    note: 'Mercy',
     color: 'black',
   },
   {
-    note: 'G',
+    note: 'Pharah',
     color: 'white',
   },
   {
-    note: 'GSharp',
+    note: 'Soldier',
     color: 'black',
   },
   {
-    note: 'A',
+    note: 'Sombra',
     color: 'white',
   },
   {
-    note: 'ASharp',
+    note: 'Torbjorn',
     color: 'black',
   },
   {
-    note: 'B',
+    note: 'Widowmaker',
     color: 'white',
   },
   {
-    note: 'Janis',
+    note: 'Zarya',
+    color: 'black',
+  },
+  {
+    note: 'Zenyatta',
     color: 'white',
   },
 ];
